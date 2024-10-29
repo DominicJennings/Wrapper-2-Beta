@@ -27,9 +27,6 @@
 	<theme id="ben10" name="Ben 10" cc_theme_id="ben10" />
 	<theme id="bizmodels" name="Business Models" cc_theme_id="bizmodels" />
 	<theme id="botdf" name="Blood on the Dance Floor (Unused)" cc_theme_id="botdf" />
-	<!-- I planned to disable botdf, but i'm gonna ask you guys first -->
-	<!-- What's botdf? ~CLarramore -->
-	<!--BOTDF is a cancelled cc2 theme. It dosen't really have much in it, so I was suggesting we remove it-->
 	<theme id="bunny" name="It's Happy Bunny" cc_theme_id="bunny" enable="N" />
 	<theme id="chowder" name="Chowder" cc_theme_id="chowder" enable="N" />
 	<theme id="domo" name="Domo" cc_theme_id="domo" enable="N" />
@@ -41,8 +38,9 @@
 	<theme id="willie" name="Willie Nelson" cc_theme_id="willie" enable="N" />
 	<theme id="toonadv" name="Toon Adventure" cc_theme_id="willie" enable="N" />
 	<theme id="common" name="Common" thumb="matchboy-stand.swf" cc_theme_id="common" />
-	<word>mikiko,vikiko</word>
-	<whiteword />
-	<excludeAssetIDs />
-	<points money="0" sharing="0" />
+        <word></word>
+        <whiteword/>
+        <excludeAssetIDs/>
+        <points money="100" sharing="0"/>
+        <tts credit="999"/>
 </list>
