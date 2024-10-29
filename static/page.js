@@ -33,7 +33,7 @@ module.exports = function (req, res, url) {
 				flashvars: {
 					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>',
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'original_asset_id': query['id'] || null,
-					'themeId': 'business', 'ut': 60, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go',
+					'themeId': 'family', 'ut': 60, 'bs': 'adam', 'appCode': 'go', 'page': '', 'siteId': '0',
 					'm_mode': 'school', 'isLogin': 'Y', 'isEmbed': 1, 'ctc': 'go', 'tlang': 'en_US',
 				},
 				allowScriptAccess: 'always',
@@ -52,11 +52,49 @@ module.exports = function (req, res, url) {
 				flashvars: {
 					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>',
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'original_asset_id': query['id'] || null,
-					'themeId': 'business', 'ut': 60, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go',
+					'themeId': 'family', 'ut': 60, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': '0',
 					'm_mode': 'school', 'isLogin': 'Y', 'isEmbed': 1, 'ctc': 'go', 'tlang': 'en_US',
 				},
 				allowScriptAccess: 'always',
 				movie: process.env.SWF_URL + '/cc_browser.swf', // 'http://localhost/cc_browser.swf'
+			};
+			break;
+		}
+
+			
+		case '/go_full': {
+			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
+				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
+			title = 'Video Maker';
+			attrs = {
+				data: process.env.SWF_URL + '/go_full.swf',
+				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
+			};
+			params = {
+				flashvars: {
+					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
+					'ut': 30, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': '0', 'lid': 13, 'isLogin': 'Y', 'retut': 0,
+					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'family', 'tray': 'custom', 'tlang': 'en_US',
+					'presaveId': presave, 'goteam_draft_only': 0, 'isWide': 0, 'nextUrl': '/pages/html/list.html',
+				},
+				allowScriptAccess: 'always',
+			};
+			sessions.set({ movieId: presave }, req);
+			break;
+		}
+
+		case '/videos': {
+			title = 'Video Player';
+			attrs = {
+				data: process.env.SWF_URL + '/player.swf',
+				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
+			};
+			params = {
+				flashvars: {
+					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'ut': 30,
+					'autostart': 0, 'isWide': 0, 'clientThemePath': process.env.CLIENT_URL + '/<client_theme>',
+				},
+				allowScriptAccess: 'always',
 			};
 			break;
 		}
