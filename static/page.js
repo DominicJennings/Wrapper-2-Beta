@@ -62,7 +62,7 @@ module.exports = function (req, res, url) {
 		}
 
 			
-		case '/go_full': {
+		case '/videomaker/full': {
 			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
 				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
 			title = 'Video Maker';
@@ -75,7 +75,7 @@ module.exports = function (req, res, url) {
 					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
 					'ut': 30, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': '0', 'lid': 13, 'isLogin': 'Y', 'retut': 0,
 					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'family', 'tray': 'custom', 'tlang': 'en_US',
-					'presaveId': presave, 'goteam_draft_only': 0, 'isWide': 0, 'nextUrl': '/pages/html/list.html',
+					'presaveId': presave, 'goteam_draft_only': 0, 'isWide': 1, 'nextUrl': '/pages/html/list.html',
 				},
 				allowScriptAccess: 'always',
 			};
