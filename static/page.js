@@ -77,6 +77,7 @@ module.exports = function (req, res, url) {
 			};
 			break;
 		}
+			
 		default:
 			return;
 	}
